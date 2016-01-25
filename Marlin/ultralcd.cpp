@@ -785,7 +785,7 @@ static void lcd_load_menu_EXT1_ABS()
 {
   lcd_print_load_message();
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -799,9 +799,12 @@ static void lcd_load_menu_EXT1_ABS()
   enquecommand_P(PSTR("G92 E0"));
   enquecommand_P(PSTR("M83"));
   enquecommand_P(PSTR("G1 E300 F2000"));
+  enquecommand_P(PSTR("G1 E90 F2000"));
   enquecommand_P(PSTR("G1 E200 F1000"));
+  enquecommand_P(PSTR("G1 E60 F2000"));
   enquecommand_P(PSTR("M117 Feeding filament"));
   enquecommand_P(PSTR("G1 E60 F50"));
+  enquecommand_P(PSTR("G1 E17 F50"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
@@ -815,7 +818,7 @@ static void lcd_load_menu_EXT1_PLA()
 {
   lcd_print_load_message();
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -829,9 +832,12 @@ static void lcd_load_menu_EXT1_PLA()
   enquecommand_P(PSTR("G92 E0"));
   enquecommand_P(PSTR("M83"));
   enquecommand_P(PSTR("G1 E300 F2000"));
+  enquecommand_P(PSTR("G1 E90 F2000"));
   enquecommand_P(PSTR("G1 E200 F1000"));
+  enquecommand_P(PSTR("G1 E60 F2000"));
   enquecommand_P(PSTR("M117 Feeding filament"));
   enquecommand_P(PSTR("G1 E60 F50"));
+  enquecommand_P(PSTR("G1 E17 F50"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
@@ -845,7 +851,7 @@ static void lcd_load_menu_EXT2_ABS()
 {
   lcd_print_load_message();
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -859,9 +865,12 @@ static void lcd_load_menu_EXT2_ABS()
   enquecommand_P(PSTR("G92 E0"));
   enquecommand_P(PSTR("M83"));
   enquecommand_P(PSTR("G1 E300 F2000"));
+  enquecommand_P(PSTR("G1 E90 F2000"));
   enquecommand_P(PSTR("G1 E200 F1000"));
+  enquecommand_P(PSTR("G1 E60 F2000"));
   enquecommand_P(PSTR("M117 Feeding filament"));
   enquecommand_P(PSTR("G1 E60 F50"));
+  enquecommand_P(PSTR("G1 E17 F50"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
@@ -875,7 +884,7 @@ static void lcd_load_menu_EXT2_PLA()
 {  
   lcd_print_load_message();
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -889,9 +898,12 @@ static void lcd_load_menu_EXT2_PLA()
   enquecommand_P(PSTR("G92 E0"));
   enquecommand_P(PSTR("M83"));
   enquecommand_P(PSTR("G1 E300 F2000"));
+  enquecommand_P(PSTR("G1 E90 F2000"));
   enquecommand_P(PSTR("G1 E200 F1000"));
+  enquecommand_P(PSTR("G1 E60 F2000"));
   enquecommand_P(PSTR("M117 Feeding filament"));
   enquecommand_P(PSTR("G1 E60 F50"));
+  enquecommand_P(PSTR("G1 E17 F50"));  
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
@@ -904,7 +916,7 @@ static void lcd_load_menu_EXT2_PLA()
 static void lcd_unload_menu_EXT1_ABS()
 {
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -920,7 +932,9 @@ static void lcd_unload_menu_EXT1_ABS()
   enquecommand_P(PSTR("G1 E10 F50"));
   enquecommand_P(PSTR("M117 Unloading filament"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
@@ -933,7 +947,7 @@ static void lcd_unload_menu_EXT1_ABS()
 static void lcd_unload_menu_EXT1_PLA()
 {
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -949,7 +963,9 @@ static void lcd_unload_menu_EXT1_PLA()
   enquecommand_P(PSTR("G1 E10 F50"));
   enquecommand_P(PSTR("M117 Unloading filament"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
@@ -962,7 +978,7 @@ static void lcd_unload_menu_EXT1_PLA()
 static void lcd_unload_menu_EXT2_ABS()
 {
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -978,7 +994,9 @@ static void lcd_unload_menu_EXT2_ABS()
   enquecommand_P(PSTR("G1 E10 F50"));
   enquecommand_P(PSTR("M117 Unloading filament"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
@@ -991,7 +1009,7 @@ static void lcd_unload_menu_EXT2_ABS()
 static void lcd_unload_menu_EXT2_PLA()
 {
   lcd_return_to_status();
-  enquecommand_P(PSTR("M117 Preparing..."));
+  enquecommand_P(PSTR("M117 PreparingX..."));
   enquecommand_P(PSTR("M106 S165"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
@@ -1007,7 +1025,9 @@ static void lcd_unload_menu_EXT2_PLA()
   enquecommand_P(PSTR("G1 E10 F50"));
   enquecommand_P(PSTR("M117 Unloading filament"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G1 E-300 F2000"));
+  enquecommand_P(PSTR("G1 E-90 F2000"));
   enquecommand_P(PSTR("G28"));
   enquecommand_P(PSTR("G90"));
   enquecommand_P(PSTR("M82"));
