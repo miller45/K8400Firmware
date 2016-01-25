@@ -1,3 +1,4 @@
+#define HACKsensitivepins
 /* -*- c++ -*- */
 
 /*
@@ -1794,30 +1795,33 @@ void process_commands()
     case 42: //M42 -Change pin status via gcode
       if (code_seen('S'))
       {
+        //SERIAL_PROTOCOLPGM("S");
         int pin_status = code_value();
-        int pin_number = LED_PIN;
-        if (code_seen('P') && pin_status >= 0 && pin_status <= 255)
+       // SERIAL_PROTOCOL(pin_status);
+        int pin_number = LED_PIN;        
+        if (code_seen('P') && pin_status >= 0 && pin_status <= 255){
           pin_number = code_value();
-        for(int8_t i = 0; i < (int8_t)sizeof(sensitive_pins); i++)
-        {
-          if (sensitive_pins[i] == pin_number)
+          #ifndef HACKsensitivepins
+          for(int8_t i = 0; i < (int8_t)sizeof(sensitive_pins); i++)
           {
-            pin_number = -1;
-            break;
-          }
-        }
-      #if defined(FAN_PIN) && FAN_PIN > -1
-        if (pin_number == FAN_PIN)
-          fanSpeed = pin_status;
-      #endif
-        if (pin_number > -1)
-        {
+             if (sensitive_pins[i] == pin_number)
+             {
+               pin_number = -1;
+               break;
+             }
+           }
+          #endif
           pinMode(pin_number, OUTPUT);
           digitalWrite(pin_number, pin_status);
-          analogWrite(pin_number, pin_status);
-        }
+        }else{
+            SERIAL_PROTOCOLPGM("?");
+        }      
+    
+      }else{
+          SERIAL_PROTOCOLPGM("?");
       }
-     break;
+      return;
+      break;
     case 104: // M104
       if(setTargetedHotend(104)){
         break;
